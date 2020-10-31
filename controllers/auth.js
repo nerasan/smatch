@@ -13,7 +13,7 @@ router.post('/signup', (req, res)=>{
     // if it does, throw an error message
     // otherwise create a new user and store them in the db
     db.user.findOrCreate({
-        where: {email: req.body.email },
+        where: { email: req.body.email },
         defaults: {
             name: req.body.name,
             password: req.body.password
@@ -27,10 +27,10 @@ router.post('/signup', (req, res)=>{
         }
         // redirect to login page after creating login
         res.redirect('/auth/login')
-
     })
-
-
+    .catch(err=>{
+        console.log('error:', err)
+    })
 })
 
 router.get('/login', (req, res)=>{
