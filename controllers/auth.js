@@ -6,7 +6,7 @@ router.get('/signup', (req, res)=>{
 })
 
 router.post('/signup', (req, res)=>{
-    console.log('posting to /auth/signup')
+    console.log('sign up form user input:', req.body)
     // redirect to login page after creating login
     res.redirect('/auth/login')
 })
@@ -16,7 +16,7 @@ router.get('/login', (req, res)=>{
 })
 
 router.post('/login', (req, res)=>{
-    console.log('posting to /auth/login')
+    console.log('log in form user input:', req.body)
     // redirect to home page
     res.redirect('/')
 })

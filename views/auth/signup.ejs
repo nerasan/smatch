@@ -1,1 +1,17 @@
-<h2>signup form goes here</h2>
+<h2>sign up</h2>
+
+<form method="POST" action="/auth/signup">
+    <label for="new-name">name</label>
+    <input type="text" name="name" id="new-name">
+
+    <label for="new-email">email</label>
+    <input type="email" name="email" id="new-email">
+
+    <label for="new-password">password</label>
+    <input type="password" name="password" id="new-password">
+
+    <input type="submit" value="sign up">
+
+</form>
+
+<!-- always a post route unless you need a query string. unless it is a search form, always do a post because a POST keeps data secure. whereas GET puts the data in the URL -->
