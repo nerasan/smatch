@@ -6,6 +6,7 @@ const session = require('express-session')
 const passport = require('./config/ppConfig.js') // requiring the ppconfig file where we have required passport and will make modifications to
 const flash = require('connect-flash') // to have flash messages appear when the password/username is invalid
 const isLoggedIn = require('./middleware/isLoggedIn')
+const axios = require('axios')
 
 // middleware - set up ejs and ejs layouts
 app.set('view engine', 'ejs')
@@ -51,5 +52,5 @@ app.get('/profile', isLoggedIn, (req, res)=>{
 })
 
 app.listen(process.env.PORT || 3000, ()=>{
-    console.log('listening to the spooky sounds of port 3000')
+    console.log('reporting live from port 3000')
 })
