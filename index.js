@@ -50,6 +50,6 @@ app.get('/profile', isLoggedIn, (req, res)=>{
     res.render('profile')
 })
 
-app.listen(8000, ()=>{
-    console.log('listening to the spooky sounds of port 8000')
+app.listen(process.env.PORT || 3000, ()=>{
+    console.log('listening to the spooky sounds of port 3000')
 })
