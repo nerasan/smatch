@@ -14,7 +14,7 @@ router.post('/signup', (req, res)=>{
     // if it does, throw an error message
     // otherwise create a new user and store them in the db
     db.user.findOrCreate({
-        where: { email: req.body.email },
+        where: { email: req.body.email }, // cannot handle two 
         defaults: {
             name: req.body.name,
             password: req.body.password

@@ -6,25 +6,25 @@ https://ssbustats.com
 
 #### Users
 
-POST /user - create (create) - creates a user with the POST payload (form) data
-GET /user/edit/:id - edit (read) - shows a form for editing your user profile
-PUT /user/:id - update (update) - updates the data for your user profile
-GET /user/:id - show (read) - list information about a specific user (i.e. /user/tsm_leffen)
+* POST /user - create (create) - creates a user with the POST payload (form) data
+* GET /user/edit/:id - edit (read) - shows a form for editing your user profile
+* PUT /user/:id - update (update) - updates the data for your user profile
+* GET /user/:id - show (read) - list information about a specific user (i.e. /user/tsm_leffen) -- *not sure this is possible since findOrCreate cannot handle restricting both email and username*
 
 #### Characters
 
-GET /characters - index (read) - lists all characters
-GET /characters/:id - show (read) - list information about a specific character (i.e. /characters/young-link)
+* GET /characters - index (read) - lists all characters
+* GET /characters/:id - show (read) - list information about a specific character (i.e. /characters/young-link)
 
 #### Matches
 
-GET /matches - index (read) - lists all matches
-GET /matches/new - new (read) - shows form to make a new match result
-POST /matches - create (create) - creates a match with the POST payload (form) data
-GET /matches/:id - show (read) - list information about a specific match (i.e. /matches/1)
-GET /matches/edit/:id - edit (read) - shows a form for editing a specific match (i.e. /matches/edit/1)
-PUT /matches/:id - update (update) - updates the data for a specific match (i.e. /matches/1)
-DELETE /matches/:id - destroy (delete) - deletes the match with the specified id (i.e. /matches/1)
+* GET /matches - index (read) - lists all matches
+* GET /matches/new - new (read) - shows form to make a new match result
+* POST /matches - create (create) - creates a match with the POST payload (form) data
+* GET /matches/:id - show (read) - list information about a specific match (i.e. /matches/1)
+* GET /matches/edit/:id - edit (read) - shows a form for editing a specific match (i.e. /matches/edit/1)
+* PUT /matches/:id - update (update) - updates the data for a specific match (i.e. /matches/1)
+* DELETE /matches/:id - destroy (delete) - deletes the match with the specified id (i.e. /matches/1)
 
 
 
