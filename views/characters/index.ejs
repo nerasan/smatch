@@ -1,0 +1,9 @@
+<h2>showing all characters</h2>
+
+<ul>
+<% characterData.forEach(character=>{ %>
+    <li>
+        <a href="/characters/<%= character.name %>"><%= character.name %></a>
+    </li>
+<% }) %>
+</ul>

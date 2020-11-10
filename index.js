@@ -41,6 +41,7 @@ app.use((req, res, next)=>{
 
 // use controllers
 app.use('/auth', require('./controllers/auth.js'))
+app.use('/characters', require('./controllers/characters.js'))
 
 app.get('/', (req, res)=>{
     res.render('home')
