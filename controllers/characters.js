@@ -11,6 +11,16 @@ router.get('/', (req, res)=>{
     axios.get(`https://smashbros-unofficial-api.vercel.app/api/v1/ultimate/characters?name=`)
     .then(response=>{
         // console.log(response.data)
+        response.data.forEach(character=>{
+            // console.log(character.name)
+            db.character.findOrCreate({
+                where: { name: character.name },
+                defaults: {
+                    icon: character.images.portrait,
+                    series: character.series.name
+                }
+            })
+        })
         res.render('characters/index', {characterData: response.data})
     })
     .catch(err=>{
