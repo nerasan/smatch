@@ -35,8 +35,6 @@ https://ssbustats.com
 
 * Look into the double criteria for findOrCreate in order to view other people's profiles by username -- if it does not work, just have it by userId
 * the a href tags in character show page do not work even though it is correct?
-* characters do not have id -- is a table even needed? or can it just be "where charactername = "link" " ? add it in the table yourself or store specific data from the response API
-
 
 ## Express Auth App
 

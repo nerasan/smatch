@@ -1,4 +1,4 @@
-<h4>add a new match</h4>
+<h4>add a new match result</h4>
 
 <!-- sorting characters alphabetically -->
 <% characters.sort(function(a, b) { %>
@@ -18,7 +18,7 @@
         <select name="characterId" id="character" class="form-control" required>
             <option selected="selected">Select Character</option>
             <% characters.forEach(function(character) { %>
-                <option value="<%= character.name %>"><%= character.name %></option>
+                <option value="<%= character.id %>"><%= character.name %></option>
             <% }) %>
         </select>
     </div>
@@ -31,6 +31,6 @@
         </select>
     </div>
 
-    <input type="submit" class="btn btn-primary">
+    <input type="submit" class="btn">
 
   </form>

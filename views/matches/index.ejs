@@ -1,2 +1,10 @@
 <h2>viewing your match history: <%= currentUser.name %></h2>
 <h4>user id: <%= currentUser.id %></h4>
+
+<form action="/matches/new">
+    <input type="submit" value="add" />
+</form>
+
+<% matches.forEach(match=>{ %>
+    <li><%= match.character.name %> = <%= match.result %></li>
+<% }) %>
