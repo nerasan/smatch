@@ -13,6 +13,12 @@ router.post('/signup', (req, res)=>{
     // creating a new user or already have an existing account
     // if it does, throw an error message
     // otherwise create a new user and store them in the db
+
+    // to do with 2 criteria, do a find and THEN do findOrCreate
+    // can also mark field as unique 
+    // set a column so that all values in column are unique
+    // use the sequelize api 
+
     db.user.findOrCreate({
         where: { email: req.body.email }, // cannot handle two 
         defaults: {

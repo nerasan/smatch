@@ -13,8 +13,8 @@ https://ssbustats.com
 
 #### Characters
 
-* GET /characters - index (read) - lists all characters
-* GET /characters/:id - show (read) - list information about a specific character (i.e. /characters/young-link)
+* GET /characters - index (read) - lists all characters -- DONE
+* GET /characters/:id - show (read) - list information about a specific character (i.e. /characters/link) -- DONE
 
 #### Matches
 
@@ -26,7 +26,16 @@ https://ssbustats.com
 * PUT /matches/:id - update (update) - updates the data for a specific match (i.e. /matches/1)
 * DELETE /matches/:id - destroy (delete) - deletes the match with the specified id (i.e. /matches/1)
 
+#### To-Do
 
+* Create a user.js controllers to edit the user data and show profiles (if this is possible -- has to be by userId)
+* Create a match.js controllers to show all matches for that user, create and/or edit matches, delete matches.
+
+#### Issues to fix
+
+* Look into the double criteria for findOrCreate in order to view other people's profiles by username -- if it does not work, just have it by userId
+* the a href tags in character show page do not work even though it is correct?
+* characters do not have id -- is a table even needed? or can it just be "where charactername = "link" " ?
 
 
 ## Express Auth App

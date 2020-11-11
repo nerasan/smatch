@@ -1,5 +1,13 @@
 <h2>showing all characters</h2>
 
+<!-- sorting characters alphabetically -->
+<% characterData.sort(function(a, b) { %>
+    <% if(a.name < b.name) return -1 %>
+    <% if(a.name > b.name) return 1 %>
+    <% return 0 %>
+<% }) %>
+
+<!-- listing all the characters -->
 <ul>
 <% characterData.forEach(character=>{ %>
     <li>

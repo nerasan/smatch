@@ -1,0 +1,36 @@
+<h4>add a new match</h4>
+
+<!-- sorting characters alphabetically -->
+<% characters.sort(function(a, b) { %>
+    <% if(a.name < b.name) return -1 %>
+    <% if(a.name > b.name) return 1 %>
+    <% return 0 %>
+<% }) %>
+
+<form action="/matches" method="POST">
+
+    <div class="form-group">
+      <input hidden type="user" name="userId" value="<%= currentUser.id %>">
+    </div>
+
+    <div class="form-group">
+        <label for="character">character</label>
+        <select name="characterId" id="character" class="form-control" required>
+            <option selected="selected">Select Character</option>
+            <% characters.forEach(function(character) { %>
+                <option value="<%= character.name %>"><%= character.name %></option>
+            <% }) %>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="result">match result</label>
+        <select name="result" id="result" class="form-control" required>
+            <option value="win">win</option>
+            <option value="lose">lose</option>
+        </select>
+    </div>
+
+    <input type="submit" class="btn btn-primary">
+
+  </form>
