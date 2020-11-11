@@ -4,7 +4,9 @@
 <form action="/matches/new">
     <input type="submit" value="add" />
 </form>
+<!-- 
+attributes: [[sequelize.Sequelize.fn('date_format', sequelize.Sequelize.col('createdAt'), '%d %b %y'), 'createdAt']], -->
 
 <% matches.forEach(match=>{ %>
-    <li><%= match.character.name %> = <%= match.result %></li>
+    <li><%= match.character.name %> = <%= match.result %> || <a href="/matches/edit/<%= match.id %>">edit</a></li>
 <% }) %>

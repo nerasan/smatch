@@ -11,30 +11,12 @@ router.get('/', (req, res)=>{
     })
     .then((foundMatches)=>{
         console.log(foundMatches)
-        // foundMatches.forEach(match=>{
-        //     console.log(`${match.result} with the following character:`)
-        //     match.characters.forEach(character=>{
-        //         console.log(character.name)
-        //     })
-        // })
         res.render('matches/index', { matches: foundMatches })
     })
     .catch((error)=>{
         console.log("the error is:", error)
     })
 })
-
-// GET /matches/new - display form for creating new matches -- USING APO
-// router.get('/new', (req, res)=>{
-//     axios.get(`https://smashbros-unofficial-api.vercel.app/api/v1/ultimate/characters?name=`)
-//     .then(response=>{
-//         // console.log(response.data)
-//         res.render('matches/new', {characters: response.data})
-//     })
-//     .catch(error=>{
-//         console.log("the error is:", error)
-//     })
-// })
 
 // GET /matches/new - display form for creating new matches -- USING DB
 router.get('/new', (req, res)=>{
@@ -71,17 +53,26 @@ router.post('/', (req, res)=>{
     })
 })
 
-
-// POST /matches - create (create) - creates a match with the POST payload (form) data
-
-
-// GET /matches/:id - show (read) - list information about a specific match (i.e. /matches/1)
-
-
 // GET /matches/edit/:id - edit (read) - shows a form for editing a specific match (i.e. /matches/edit/1)
-
+router.get('/edit/:id', (req, res)=>{
+    db.match.findAll({
+        include: [db.character]
+    })
+    .then((foundMatches)=>{
+        console.log(foundMatches)
+        res.render('matches/edit', { matches: foundMatches })
+    })
+    .catch((error)=>{
+        console.log("the error is:", error)
+    })
+})
 
 // PUT /matches/:id - update (update) - updates the data for a specific match (i.e. /matches/1)
+// router.put('/', (req, res)=>{
+//     db.match.findOrCreate({
+//         where: 
+//     })
+// })
 
 
 // DELETE /matches/:id - destroy (delete) - deletes the match with the specified id (i.e. /matches/1)
