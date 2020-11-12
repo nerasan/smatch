@@ -1,7 +1,9 @@
-<h2>editing data for matchId: <%= matchId %></h2>
+<h2>editing data for match id (from sql db): <%= match.id %></h2>
 <h4>current match data:</h4>
-character used: <%= character.name %>
-match result: <%= match.result %>
+<li>character used: <%= character.name %></li>
+<li>match result: <%= match.result %></li>
+<li>character id: <%= match.characterId %></li>
+<li>match index from url: <%= matchId %></li>
 
 <!-- sorting characters alphabetically -->
 <% allCharacters.sort(function(a, b) { %>

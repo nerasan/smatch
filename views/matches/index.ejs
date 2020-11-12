@@ -8,5 +8,6 @@
 attributes: [[sequelize.Sequelize.fn('date_format', sequelize.Sequelize.col('createdAt'), '%d %b %y'), 'createdAt']], -->
 
 <% matches.forEach(match=>{ %>
-    <li><%= match.character.name %> = <%= match.result %> || <a href="/matches/edit/<%= match.id %>">edit</a></li>
+    <% let matchIndex = match.id %>
+    <li>match id based on database: <%= match.id %> || <%= match.character.name %> = <%= match.result %> || <a href="/matches/edit/<%= matchIndex %>">edit</a></li>
 <% }) %>

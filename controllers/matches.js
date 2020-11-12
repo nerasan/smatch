@@ -10,7 +10,7 @@ router.get('/', (req, res)=>{
         include: [db.character]
     })
     .then((foundMatches)=>{
-        console.log(foundMatches)
+        console.log("all matches found:", foundMatches)
         res.render('matches/index', { matches: foundMatches })
     })
     .catch((error)=>{
@@ -68,8 +68,8 @@ router.post('/', (req, res)=>{
 router.get('/', (req, res)=>{
     db.character.findAll()
     .then((characters)=>{
-        let characterData = characters
-        console.log(characterData)
+        // let characterData = characters
+        // console.log(characterData)
         res.render('matches/index', { matches: foundMatches })
     })
     .catch((error)=>{
@@ -92,7 +92,7 @@ router.get('/edit/:id', (req, res)=>{
         .then((foundMatches)=>{
             let matchIndex = req.params.id-1 // why was this returning the match id of 1 value greater than index? it seems the first match entry id is actually 0, but for some reason when checking psql the first match id is 1?
             console.log("foundMatches:", foundMatches)
-            console.log("foundMatch specific to the current index:", foundMatches[matchIndex])
+            console.log("foundMatch specific to the current index:", matchIndex, "match data is:", foundMatches[matchIndex])
             foundMatches.forEach(foundMatch=>{
                 // console.log("foundMatch:", foundMatch)
                 console.log("foundMatch character name:", foundMatch.character.dataValues.name)
@@ -119,6 +119,7 @@ router.put('/:id', (req, res)=>{
         plain: true
     }).then(result=>{
         console.log(result)
+        res.redirect('/matches')
     })
 })
 
