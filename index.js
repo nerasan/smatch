@@ -7,8 +7,10 @@ const passport = require('./config/ppConfig.js') // requiring the ppconfig file 
 const flash = require('connect-flash') // to have flash messages appear when the password/username is invalid
 const isLoggedIn = require('./middleware/isLoggedIn')
 const axios = require('axios')
+const methodOverride = require('method-override')
 
 // middleware - set up ejs and ejs layouts
+app.use(methodOverride('_method')) // will look at '_method' in the url
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 // middleware - needed to have req.body to work, parses data so the input would work
