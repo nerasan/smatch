@@ -1,6 +1,19 @@
-<h2>editing data for match</h2>
+<h2>editing data for matchId: <%= matchId %></h2>
 
-<form action="/matches/?_method=PUT" method="POST">
+<!-- sorting characters alphabetically -->
+<% allCharacters.sort(function(a, b) { %>
+    <% if(a.name < b.name) return -1 %>
+    <% if(a.name > b.name) return 1 %>
+    <% return 0 %>
+<% }) %>
+
+<h4>all characters</h4>
+
+<% allCharacters.forEach(allChar=>{ %>
+    <li><%= allChar.name %></li>
+<% }) %>
+
+<form action="/matches/<%= matchId %>?_method=PUT" method="POST">
 
     <div class="form-group">
       <input hidden type="user" name="userId" value="<%= currentUser.id %>">
@@ -9,9 +22,9 @@
     <div class="form-group">
         <label for="character">character</label>
         <select name="characterId" id="character" class="form-control" required>
-            <option selected="selected"><%= match.character.name %></option>
-            <% characters.forEach(function(character) { %>
-                <option value="<%= character.id %>"><%= character.name %></option>
+            <option selected="selected"><%= character.name %></option>
+            <% allCharacters.forEach(function(allChar) { %>
+                <option value="<%= allChar.id %>"><%= allChar.name %></option>
             <% }) %>
         </select>
     </div>

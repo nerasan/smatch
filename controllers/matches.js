@@ -53,17 +53,70 @@ router.post('/', (req, res)=>{
     })
 })
 
-// GET /matches/edit/:id - edit (read) - shows a form for editing a specific match (i.e. /matches/edit/1)
-router.get('/edit/:id', (req, res)=>{
-    db.match.findAll({
-        include: [db.character]
-    })
-    .then((foundMatches)=>{
-        console.log(foundMatches)
-        res.render('matches/edit', { matches: foundMatches })
+
+
+// loop for getting all characters
+// <% db.character.findAll() %>
+// <% .then((characters)=>{ %>
+//     <% res.render('matches/edit', { allCharacters: characters }) %>
+// <% }) %>
+// <% .catch((error)=>{ %>
+// <%    console.log("the error is:", error) %>
+// <% }) %>
+
+// GET /matches - index (read) - lists all matches
+router.get('/', (req, res)=>{
+    db.character.findAll()
+    .then((characters)=>{
+        let characterData = characters
+        console.log(characterData)
+        res.render('matches/index', { matches: foundMatches })
     })
     .catch((error)=>{
         console.log("the error is:", error)
+    })
+})
+
+// GET /matches/edit/:id - edit (read) - shows a form for editing a specific match (i.e. /matches/edit/1)
+// can i do a findAll within this findAll to get all characters and store in object?
+router.get('/edit/:id', (req, res)=>{
+
+    db.character.findAll()
+    .then((characters)=>{
+        let characterData = characters
+        console.log("characterData:", characterData)
+        
+        db.match.findAll({
+            include: [db.character]
+        })
+        .then((foundMatches)=>{
+            console.log("foundMatches:", foundMatches)
+            foundMatches.forEach(foundMatch=>{
+                // console.log("foundMatch:", foundMatch)
+                console.log("foundMatch character name:", foundMatch.character.dataValues.name)
+            })
+            res.render('matches/edit', { allCharacters: characterData, match: foundMatches[req.params.id], character: foundMatches[req.params.id].character.dataValues, matchId: req.params.id })
+        })
+    })
+    .catch((error)=>{
+        console.log("the error is:", error)
+    })
+})
+
+// PUT /matches/:id - update (update) - updates the data for a specific match (i.e. /matches/1)
+// returning: true tells sequelize to return the object, plain: true returns the object itself without additional data
+router.put('/:id', (req, res)=>{
+    db.match.update({
+        characterId: req.body.characterId,
+        result: req.body.result
+    }, {
+        where: {
+            id: req.params.id
+        },
+        returning: true,
+        plain: true
+    }).then(result=>{
+        console.log(result)
     })
 })
 
