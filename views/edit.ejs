@@ -1,0 +1,33 @@
+<h2>editing data for profile: <%= currentUser.name %></h2> id #: <%= currentUser.id %>
+
+<ul>
+    <li>name: <%= currentUser.name %></li>
+    <li>user id: <%= currentUser.id %></li>
+    <li>email: <%= currentUser.email %></li>
+    <li>switch code: <%= currentUser.switchCode %></li>
+    <li>about: <%= currentUser.about %></li>
+</ul>
+
+<form action="/profile?_method=PUT" method="POST">
+    <div class="form-group">
+      <input hidden type="user" name="userId" value="<%= currentUser.id %>">
+    </div>
+
+    <div class="form-group">
+        <label for="new-email">email</label>
+        <input type="email" name="email" id="new-email" value="<%= currentUser.email %>">
+    </div>
+
+    <div class="form-group">
+        <label for="switchCode">switch code</label>
+        <input type="text" name="switchCode" id="switchCode" value="<%= currentUser.switchCode %>">
+    </div>
+
+    <div class="form-group">
+        <label for="about">about</label>
+        <input type="text" name="about" id="about" value="<%= currentUser.about %>">
+    </div>
+
+    <input type="submit" class="btn">
+
+  </form>

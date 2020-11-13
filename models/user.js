@@ -49,7 +49,49 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-  }, {
+    // switchCode: {
+    //   type: DataTypes.STRING,
+    //   isNumeric: true,
+    //   max: 12
+    // },
+    // about: {
+    //   type: DataTypes.TEXT
+    // }
+    // top1char: {
+    //   type: DataTypes.INTEGER
+    // },
+    // top2char: {
+    //   type: DataTypes.INTEGER 
+    // },
+    // top3char: {
+    //   type: DataTypes.INTEGER 
+    // },
+    // top1winrate: {
+    //   type: DataTypes.INTEGER 
+    // },
+    // top1loserate: {
+    //   type: DataTypes.INTEGER 
+    // },
+    // top2winrate: {
+    //   type: DataTypes.INTEGER 
+    // },
+    // top2loserate: {
+    //   type: DataTypes.INTEGER 
+    // },
+    // top3winrate: {
+    //   type: DataTypes.INTEGER 
+    // },
+    // top3loserate: {
+    //   type: DataTypes.INTEGER 
+    // },
+    // totalW: {
+    //   type: DataTypes.INTEGER 
+    // },
+    // totalL: {
+    //   type: DataTypes.INTEGER
+    // }
+  },
+   {
     sequelize,
     modelName: 'user',
   });

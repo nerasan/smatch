@@ -1,1 +1,20 @@
 <h2><%= currentUser.name %>'s profile</h2>
+<h4><a href="/profile/edit/<%= currentUser.id %>">edit profile</a></h4>
+
+<ul>
+    <li>
+        name: <%= currentUser.name %>
+    </li>
+    <li>
+        user id: <%= currentUser.id %>
+    </li>
+    <li>
+        email: <%= currentUser.email %>
+    </li>
+    <li>
+        switch code: <%= currentUser.switchCode %>
+    </li>
+    <li>
+        about: <%= currentUser.about %>
+    </li>
+</ul>

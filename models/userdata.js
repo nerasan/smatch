@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   userData.init({
-    userId: DataTypes.INTEGER,
     switchCode: DataTypes.STRING,
+    userId: DataTypes.INTEGER,
     top1char: DataTypes.STRING,
     top2char: DataTypes.STRING,
     top3char: DataTypes.STRING,

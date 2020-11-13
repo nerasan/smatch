@@ -24,15 +24,20 @@ https://ssbustats.com
 * GET /matches/:id - show (read) - list information about a specific match (i.e. /matches/1) -- is this needed?
 * GET /matches/edit/:id - edit (read) - shows a form for editing a specific match (i.e. /matches/edit/1) -- DONE
 * PUT /matches/:id - update (update) - updates the data for a specific match (i.e. /matches/1) -- DONE
-* DELETE /matches/:id - destroy (delete) - deletes the match with the specified id (i.e. /matches/1)
+* DELETE /matches/:id - destroy (delete) - deletes the match with the specified id (i.e. /matches/1) -- DONE
 
 #### To-Do
 
 * Create a user.js controllers to edit the user data and show profiles (if this is possible -- has to be by userId)
-* Create a match.js controllers to show all matches for that user, create and/or edit matches, delete matches.
+* Get the match results and a count of wins/losses per character to even show up on the profile page
+* Work on CSS
+* Check ways to make graph
+* Deploy site
+
 
 #### Issues to fix
 
 * Look into the double criteria for findOrCreate in order to view other people's profiles by username -- if it does not work, just have it by userId
 * the a href tags in character show page do not work even though it is correct?
 * Figure out the date formatting -- if have time
+* Why is the model for userData not showing the integer fields? Is it not possible to have one-to-one relationships? Could move everything into User but it is not updating properly.

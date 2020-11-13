@@ -8,6 +8,7 @@ const flash = require('connect-flash') // to have flash messages appear when the
 const isLoggedIn = require('./middleware/isLoggedIn')
 const axios = require('axios')
 const methodOverride = require('method-override')
+const db = require('./models')
 
 // middleware - set up ejs and ejs layouts
 app.use(methodOverride('_method')) // will look at '_method' in the url
@@ -50,10 +51,46 @@ app.get('/', (req, res)=>{
     res.render('home')
 })
 
+// GET route to view profile
 // isLoggedIn only applies to middleware that needs specific routes
 app.get('/profile', isLoggedIn, (req, res)=>{
     res.render('profile')
 })
+
+// GET /profile/edit - edit (read) - shows a form for editing your profile
+app.get('/profile/edit/:id', isLoggedIn, (req, res)=>{
+    db.user.findOne({
+        where: { id: req.params.id }
+    }).then((result)=>{
+        console.log("logging the result:", result)
+        console.log("req params id is:", req.params.id)
+        res.render('edit')
+    }).catch(err=>{
+        console.log("the error when going to edit page is:", err)
+    })
+})
+
+// PUT /profile - update (update) - updates the data for your profile
+// returning: true tells sequelize to return the object, plain: true returns the object itself without additional data
+app.put('/profile', isLoggedIn, (req, res)=>{
+    db.user.update({
+        email: req.body.email,
+        switchCode: req.body.switchCode,
+        about: req.body.about
+    }, {
+        where: {
+            id: req.body.userId
+        },
+        returning: true,
+        plain: true
+    }).then(result=>{
+        console.log(result)
+        res.redirect('/profile')
+    }).catch(err=>{
+        console.log("error for updating profile is:", err)
+    })
+})
+
 
 app.listen(process.env.PORT || 3000, ()=>{
     console.log('reporting live from port 3000')
