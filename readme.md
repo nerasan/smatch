@@ -22,8 +22,8 @@ https://ssbustats.com
 * GET /matches/new - new (read) - shows form to make a new match result -- DONE
 * POST /matches - create (create) - creates a match with the POST payload (form) data -- DONE
 * GET /matches/:id - show (read) - list information about a specific match (i.e. /matches/1) -- is this needed?
-* GET /matches/edit/:id - edit (read) - shows a form for editing a specific match (i.e. /matches/edit/1)
-* PUT /matches/:id - update (update) - updates the data for a specific match (i.e. /matches/1)
+* GET /matches/edit/:id - edit (read) - shows a form for editing a specific match (i.e. /matches/edit/1) -- DONE
+* PUT /matches/:id - update (update) - updates the data for a specific match (i.e. /matches/1) -- DONE
 * DELETE /matches/:id - destroy (delete) - deletes the match with the specified id (i.e. /matches/1)
 
 #### To-Do
@@ -35,5 +35,4 @@ https://ssbustats.com
 
 * Look into the double criteria for findOrCreate in order to view other people's profiles by username -- if it does not work, just have it by userId
 * the a href tags in character show page do not work even though it is correct?
-* Figure out the date formatting
-* Edit route works but now the matches index page showing all matches shows based on database updates so the most updated match is at the bottom
+* Figure out the date formatting -- if have time

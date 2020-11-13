@@ -12,12 +12,6 @@
     <% return 0 %>
 <% }) %>
 
-<h4>all characters</h4>
-
-<% allCharacters.forEach(allChar=>{ %>
-    <li><%= allChar.name %></li>
-<% }) %>
-
 <form action="/matches/<%= matchIndex %>?_method=PUT" method="POST">
 
     <div class="form-group">

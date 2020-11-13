@@ -14,8 +14,17 @@ router.get('/', (req, res)=>{
         console.log("all matches found:", foundMatches)
         res.render('matches/index', { matches: foundMatches })
     })
+    let deletematch = req.query.id
+    console.log("the match to be deleted is at match index:", deletematch)
+    db.match.destroy({
+        where: {
+            id: deletematch
+        }
+    }).then(()=>{
+        res.redirect('/matches')
+    })
     .catch((error)=>{
-        console.log("the error is:", error)
+        console.log("the error for matches GET route is:", error)
     })
 })
 
@@ -54,22 +63,7 @@ router.post('/', (req, res)=>{
     })
 })
 
-// // GET /matches - index (read) - lists all matches ----- ??? what was this for?
-// router.get('/', (req, res)=>{
-//     db.character.findAll()
-//     .then((characters)=>{
-//         // let characterData = characters
-//         // console.log(characterData)
-//         res.render('matches/index', { matches: foundMatches })
-//     })
-//     .catch((error)=>{
-//         console.log("the error is:", error)
-//     })
-// })
-
 // GET /matches/edit/:id - edit (read) - shows a form for editing a specific match (i.e. /matches/edit/1)
-// can i do a findAll within this findAll to get all characters and store in object?
-
 router.get('/edit/:id', (req, res)=>{
     db.character.findAll()
     .then(characters=>{
@@ -109,16 +103,17 @@ router.put('/:id', (req, res)=>{
     })
 })
 
-// PUT /matches/:id - update (update) - updates the data for a specific match (i.e. /matches/1)
-// router.put('/', (req, res)=>{
-//     db.match.findOrCreate({
-//         where: 
+// DELETE /matches/:id - destroy (delete) - deletes the match with the specified id (i.e. /matches/1) -- might put within the get route like in pokedex
+// router.delete('/:id', (req, res)=>{
+//     db.match.destroy({
+//         where: {
+//             id: req.params.id 
+//         }
+//     }).then(()=>{
+//         res.redirect('/matches')
+//     }).catch(err=>{
+//         console.log("error for deleting match is:", err)
 //     })
 // })
-
-
-// DELETE /matches/:id - destroy (delete) - deletes the match with the specified id (i.e. /matches/1)
-
-
 
 module.exports = router
