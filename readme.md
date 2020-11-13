@@ -36,4 +36,4 @@ https://ssbustats.com
 * Look into the double criteria for findOrCreate in order to view other people's profiles by username -- if it does not work, just have it by userId
 * the a href tags in character show page do not work even though it is correct?
 * Figure out the date formatting
-* The edit route and show page works for the most part but it seems it is not updating in the database? When editing?
+* Edit route works but now the matches index page showing all matches shows based on database updates so the most updated match is at the bottom

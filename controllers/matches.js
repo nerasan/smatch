@@ -7,7 +7,8 @@ const passport = require('../config/ppConfig.js')
 // GET /matches - index (read) - lists all matches
 router.get('/', (req, res)=>{
     db.match.findAll({
-        include: [db.character]
+        order: [ ['id', 'ASC'] ],
+        include: [db.character],
     })
     .then((foundMatches)=>{
         console.log("all matches found:", foundMatches)
@@ -53,29 +54,18 @@ router.post('/', (req, res)=>{
     })
 })
 
-
-
-// loop for getting all characters
-// <% db.character.findAll() %>
-// <% .then((characters)=>{ %>
-//     <% res.render('matches/edit', { allCharacters: characters }) %>
-// <% }) %>
-// <% .catch((error)=>{ %>
-// <%    console.log("the error is:", error) %>
-// <% }) %>
-
-// GET /matches - index (read) - lists all matches
-router.get('/', (req, res)=>{
-    db.character.findAll()
-    .then((characters)=>{
-        // let characterData = characters
-        // console.log(characterData)
-        res.render('matches/index', { matches: foundMatches })
-    })
-    .catch((error)=>{
-        console.log("the error is:", error)
-    })
-})
+// // GET /matches - index (read) - lists all matches ----- ??? what was this for?
+// router.get('/', (req, res)=>{
+//     db.character.findAll()
+//     .then((characters)=>{
+//         // let characterData = characters
+//         // console.log(characterData)
+//         res.render('matches/index', { matches: foundMatches })
+//     })
+//     .catch((error)=>{
+//         console.log("the error is:", error)
+//     })
+// })
 
 // GET /matches/edit/:id - edit (read) - shows a form for editing a specific match (i.e. /matches/edit/1)
 // can i do a findAll within this findAll to get all characters and store in object?
@@ -99,33 +89,6 @@ router.get('/edit/:id', (req, res)=>{
     })
 })
 
-// OLD CODE THAT EDIT ROUTE WAS NOT WORKING -- COMMENTING OUT 
-// router.get('/edit/:id', (req, res)=>{
-
-//     db.character.findAll()
-//     .then((characters)=>{
-//         let characterData = characters
-//         console.log("characterData:", characterData)
-        
-//         db.match.findAll({
-//             include: [db.character]
-//         })
-//         .then((foundMatches)=>{
-//             let matchIndex = req.params.id-1 // why was this returning the match id of 1 value greater than index? it seems the first match entry id is actually 0, but for some reason when checking psql the first match id is 1?
-//             console.log("foundMatches:", foundMatches)
-//             console.log("foundMatch specific to the current index:", matchIndex, "match data is:", foundMatches[matchIndex])
-//             foundMatches.forEach(foundMatch=>{
-//                 // console.log("foundMatch:", foundMatch)
-//                 console.log("foundMatch character name:", foundMatch.character.dataValues.name)
-//             })
-//             res.render('matches/edit', { allCharacters: characterData, match: foundMatches[matchIndex], character: foundMatches[matchIndex].character.dataValues, matchId: matchIndex })
-//         })
-//     })
-//     .catch((error)=>{
-//         console.log("the error is:", error)
-//     })
-// })
-
 // PUT /matches/:id - update (update) - updates the data for a specific match (i.e. /matches/1)
 // returning: true tells sequelize to return the object, plain: true returns the object itself without additional data
 router.put('/:id', (req, res)=>{
@@ -134,7 +97,7 @@ router.put('/:id', (req, res)=>{
         result: req.body.result
     }, {
         where: {
-            id: req.params.id-1
+            id: req.params.id
         },
         returning: true,
         plain: true
