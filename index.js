@@ -16,6 +16,7 @@ app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 // middleware - needed to have req.body to work, parses data so the input would work
 app.use(express.urlencoded({ extended: false }))
+app.use(express.static(__dirname + '/public'))
 
 // session middleware
 app.set('trust proxy', 1) // trust first proxy
@@ -72,25 +73,25 @@ app.get('/profile/edit/:id', isLoggedIn, (req, res)=>{
 
 // PUT /profile - update (update) - updates the data for your profile
 // returning: true tells sequelize to return the object, plain: true returns the object itself without additional data
-app.put('/profile', isLoggedIn, (req, res)=>{
+
+app.post('/profile', isLoggedIn, (req, res)=>{
     db.user.update({
-        email: req.body.email,
         switchCode: req.body.switchCode,
         about: req.body.about
     }, {
         where: {
-            id: req.body.userId
-        },
-        returning: true,
-        plain: true
+            email: req.body.email
+        }
     }).then(result=>{
-        console.log(result)
-        res.redirect('/profile')
-    }).catch(err=>{
+            console.log(result)
+            console.log("updated profile for email:", req.body.email)
+            console.log("switch code updated to:", req.body.switchCode)
+            console.log("about box updated to:", req.body.about)
+            res.redirect('/profile')
+        }).catch(err=>{
         console.log("error for updating profile is:", err)
     })
 })
-
 
 app.listen(process.env.PORT || 3000, ()=>{
     console.log('reporting live from port 3000')

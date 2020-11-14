@@ -8,14 +8,13 @@
     <li>about: <%= currentUser.about %></li>
 </ul>
 
-<form action="/profile?_method=PUT" method="POST">
+<form action="/profile" method="POST">
     <div class="form-group">
       <input hidden type="user" name="userId" value="<%= currentUser.id %>">
     </div>
 
     <div class="form-group">
-        <label for="new-email">email</label>
-        <input type="email" name="email" id="new-email" value="<%= currentUser.email %>">
+        <input hidden type="email" name="email" id="new-email" value="<%= currentUser.email %>">
     </div>
 
     <div class="form-group">

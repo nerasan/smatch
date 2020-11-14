@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SSBU stats</title>
+
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <header>
@@ -11,13 +13,13 @@
         <nav>
             <ul>
                 <% if (!currentUser) { %>
-                    <li><a href="/auth/signup">sign up</a></li>
-                    <li><a href="/auth/login">log in</a></li>
+                    <li class="menu"><a href="/auth/signup">sign up</a></li>
+                    <li class="menu"><a href="/auth/login">log in</a></li>
                 <% } else { %>
-                    <li><a href="/profile">profile</a></li>
-                    <li><a href="/matches">match history</a></li>
-                    <li><a href="/characters">characters</a></li>
-                    <li><a href="/auth/logout">log out</a></li>
+                    <li class="menu"><a href="/profile">profile</a></li>
+                    <li class="menu"><a href="/matches/<%= currentUser.id %>">match history</a></li>
+                    <li class="menu"><a href="/characters">characters</a></li>
+                    <li class="menu"><a href="/auth/logout">log out</a></li>
                 <% } %>
             </ul>
         </nav>
@@ -27,4 +29,10 @@
     <%- body %>
     
 </body>
+
+<footer>
+
+</footer>
+
+
 </html>

@@ -1,0 +1,20 @@
+body {
+    background-color: #383838;
+    font-family: arial;
+    color: #f5f5f5;
+}
+
+/* layout ejs -- SSBU stats header */
+header {
+    background-color: #828282;
+    padding: 10px;
+}
+
+h1 {
+    font-size: 16px;
+}
+
+.menu {
+    display: inline-block;
+    margin: 0 30px 0 0;
+}

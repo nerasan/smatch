@@ -7,7 +7,7 @@
     <% return 0 %>
 <% }) %>
 
-<form action="/matches" method="POST">
+<form action="/matches/<%= currentUser.id %>" method="POST">
 
     <div class="form-group">
       <input hidden type="user" name="userId" value="<%= currentUser.id %>">

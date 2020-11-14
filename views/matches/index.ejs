@@ -1,7 +1,7 @@
 <h2>viewing your match history: <%= currentUser.name %></h2>
 <h4>user id: <%= currentUser.id %></h4>
 
-<form action="/matches/new">
+<form action="/matches/new/<%= currentUser.id %>">
     <input type="submit" value="add" />
 </form>
 <!-- 
@@ -9,5 +9,5 @@ attributes: [[sequelize.Sequelize.fn('date_format', sequelize.Sequelize.col('cre
 
 <% matches.forEach(match=>{ %>
     <% let matchIndex = match.id %>
-    <li>match id based on database: <%= match.id %> || <%= match.character.name %> = <%= match.result %> || <a href="/matches/edit/<%= matchIndex %>">edit</a> || <form method="DELETE" action="/matches"><input hidden type="text" name="id" value="<%= matchIndex %>"><button class="btn" type="submit">delete</button></form></li>
+    <li>match id based on database: <%= match.id %> || <%= match.character.name %> = <%= match.result %> || <a href="/matches/edit/<%= matchIndex %>">edit</a> || <form method="DELETE" action="/matches/<%= currentUser.id %>"><input hidden type="text" name="id" value="<%= matchIndex %>"><button class="btn" type="submit">delete</button></form></li>
 <% }) %>

@@ -21,7 +21,7 @@ router.get('/', (req, res)=>{
                 }
             })
         })
-        res.render('characters/index', {characterData: response.data})
+        res.render('characters/index', {characterData: response.data })
     })
     .catch(err=>{
         console.log("the error is:", err)

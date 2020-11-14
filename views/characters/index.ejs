@@ -10,8 +10,9 @@
 <!-- listing all the characters -->
 <ul>
 <% characterData.forEach(character=>{ %>
+    <% let charUrl = character.name.replace(" ", "%20") %>
     <li>
-        <a href="/characters/<%= character.name %>"><%= character.name %></a>
+        <%= character.name %>, <a href="/characters/<%= character.name %>">view character page</a>
     </li>
 <% }) %>
 </ul>

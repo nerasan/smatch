@@ -49,14 +49,14 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    // switchCode: {
-    //   type: DataTypes.STRING,
-    //   isNumeric: true,
-    //   max: 12
-    // },
-    // about: {
-    //   type: DataTypes.TEXT
-    // }
+    switchCode: {
+      type: DataTypes.STRING,
+      isNumeric: true,
+      max: 12
+    },
+    about: {
+      type: DataTypes.TEXT
+    }
     // top1char: {
     //   type: DataTypes.INTEGER
     // },
