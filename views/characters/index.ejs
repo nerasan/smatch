@@ -12,7 +12,7 @@
 <% characterData.forEach(character=>{ %>
     <% let charUrl = character.name.replace(" ", "%20") %>
     <li>
-        <%= character.name %>, <a href="/characters/<%= character.name %>">view character page</a>
+        <a href="/characters/<%= character.name.toLowerCase() %>"><%= character.name %></a>
     </li>
 <% }) %>
 </ul>

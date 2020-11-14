@@ -6,7 +6,6 @@ const passport = require('../config/ppConfig.js')
 
 // GET /characters -- lists all characters from axios get
 
-
 router.get('/', (req, res)=>{
     axios.get(`https://smashbros-unofficial-api.vercel.app/api/v1/ultimate/characters?name=`)
     .then(response=>{
