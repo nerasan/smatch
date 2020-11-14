@@ -1,14 +1,26 @@
-<h2>viewing your match history: <%= currentUser.name %></h2>
-<h4>user id: <%= currentUser.id %></h4>
+<h2>match history for <%= currentUser.name %></h2>
 
-<form action="/matches/new/<%= currentUser.id %>">
-    <input type="submit" value="add" />
-</form>
+<div class="match-buttons">
+    <form action="/matches/new/<%= currentUser.id %>">
+        <input type="submit" value="add" />
+    </form>
+</div>
 <!-- 
 attributes: [[sequelize.Sequelize.fn('date_format', sequelize.Sequelize.col('createdAt'), '%d %b %y'), 'createdAt']], -->
-<ul>
+
     <% matches.forEach(match=>{ %>
         <% let matchIndex = match.id %>
-        <li>match id based on database: <%= match.id %> || <%= match.character.name %> = <%= match.result %> || <a href="/matches/edit/<%= matchIndex %>">edit</a> || <form method="DELETE" action="/matches/<%= currentUser.id %>"><input hidden type="text" name="id" value="<%= matchIndex %>"><button class="btn" type="submit">delete</button></form></li>
-    <% }) %>
-</ul>
+        <div class="match-container">
+            <div class="match-details">
+                <div class="match-results">
+                    <img src="<%= match.character.icon %>" width=100> <%= match.character.name %> <span><%= match.result.toUpperCase() %><br></span>
+                </div>
+            </div>
+            <div class="match-buttons">
+                <button class="btn">
+                    <a href="/matches/edit/<%= matchIndex %>">edit</a>
+                </button>
+                <form method="DELETE" action="/matches/<%= currentUser.id %>"><input hidden type="text" name="id" value="<%= matchIndex %>"><button class="btn" type="submit">delete</button></form>
+            </div>
+        </div>
+        <% }) %>

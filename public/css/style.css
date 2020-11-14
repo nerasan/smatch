@@ -12,6 +12,26 @@ body {
     justify-content: center;
 }
 
+.match-container {
+    border: 1px solid black;
+    margin: 20px 0 0 0;
+}
+
+.match-details {
+    display: flex;
+    justify-content: center;
+}
+
+.match-results {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.match-buttons {
+    text-align: center;
+}
+
 .character-data {
     padding: 20px;
 }
