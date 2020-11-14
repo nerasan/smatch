@@ -1,4 +1,4 @@
-<h2>showing all characters</h2>
+<h2>character profiles</h2>
 
 <!-- sorting characters alphabetically -->
 <% characterData.sort(function(a, b) { %>
@@ -10,9 +10,8 @@
 <!-- listing all the characters -->
 <ul>
 <% characterData.forEach(character=>{ %>
-    <% let charUrl = character.name.replace(" ", "%20") %>
     <li>
-        <a href="/characters/<%= character.name.toLowerCase() %>"><%= character.name %></a>
+        <a href="/characters/<%= character.name.toLowerCase() %>"><%= character.name %></a> <img src="<%= character.series.icon %>" width=20>
     </li>
 <% }) %>
 </ul>

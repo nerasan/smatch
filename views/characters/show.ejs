@@ -1,3 +1,16 @@
-<h2>showing data for: <%= characterData.name %> <img src="<%= characterData.series.icon %>" width=50></h2>
+<div class="character-data">
+    <div class="character-data-one">
+        <img src="<%= characterData.images.portrait %>" width=200 class="char-show">
+        <div id="character-data-sub"><h2><%= characterData.name %>
+            <img src="<%= characterData.series.icon %>" width=30></h2>
+            <span id="character-details">
+                Series: <%= characterData.series.name %><br>
+                Availability: <%= characterData.availability %>
+            </span>
+        </div>
+    </div>
+    <div class="character-data-two">
 
-<img src="<%= characterData.images.portrait %>" width=200>
+    </div>
+</div>
+

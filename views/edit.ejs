@@ -1,12 +1,12 @@
-<h2>editing data for profile: <%= currentUser.name %></h2> id #: <%= currentUser.id %>
+<h2>edit profile: <%= currentUser.name %></h2>
 
+<h4>account details</h4>
 <ul>
-    <li>name: <%= currentUser.name %></li>
-    <li>user id: <%= currentUser.id %></li>
+    <li>username: <%= currentUser.name %> <span class="uid">(user id: #<%= currentUser.id %>)</span></li>
     <li>email: <%= currentUser.email %></li>
-    <li>switch code: <%= currentUser.switchCode %></li>
-    <li>about: <%= currentUser.about %></li>
 </ul>
+
+<h4>profile details</h4>
 
 <form action="/profile" method="POST">
     <div class="form-group">
@@ -18,13 +18,13 @@
     </div>
 
     <div class="form-group">
-        <label for="switchCode">switch code</label>
+        <label for="switchCode">switch code:</label>
         <input type="text" name="switchCode" id="switchCode" value="<%= currentUser.switchCode %>">
     </div>
 
     <div class="form-group">
-        <label for="about">about</label>
-        <input type="text" name="about" id="about" value="<%= currentUser.about %>">
+        <label for="about">about:</label>
+        <input type="text" name="about" id="about" class="edit-about" value="<%= currentUser.about %>">
     </div>
 
     <input type="submit" class="btn">

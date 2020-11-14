@@ -3,37 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSBU stats</title>
+    <title>smatch.gg</title>
 
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <header>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Super_Smash_Bros._Ultimate_logo.svg/1280px-Super_Smash_Bros._Ultimate_logo.svg.png" width=200>
-        <h1>SSBU stats</h1>
+        <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Super_Smash_Bros._Ultimate_logo.svg/1280px-Super_Smash_Bros._Ultimate_logo.svg.png" width=200></a>
+        <!-- <h1 class="top">smatch.gg</h1> -->
+        <nav>
+            <ul>
+                <% if (!currentUser) { %>
+                    <li class="menu"><a href="/">home</a></li>
+                    <li class="menu"><a href="/characters">characters</a></li>
+                    <li class="menu"><a href="/auth/login">log in</a></li>
+                    <li class="menu"><a href="/auth/signup">sign up</a></li>
+                <% } else { %>
+                    <li class="menu"><a href="/profile">profile</a></li>
+                    <li class="menu"><a href="/matches/<%= currentUser.id %>">match history</a></li>
+                    <li class="menu"><a href="/characters">characters</a></li>
+                    <li class="menu"><a href="/auth/logout">log out</a></li>
+                <% } %>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <% if (!currentUser) { %>
-                <li class="menu"><a href="/auth/signup">sign up</a></li>
-                <li class="menu"><a href="/auth/login">log in</a></li>
-            <% } else { %>
-                <li class="menu"><a href="/profile">profile</a></li>
-                <li class="menu"><a href="/matches/<%= currentUser.id %>">match history</a></li>
-                <li class="menu"><a href="/characters">characters</a></li>
-                <li class="menu"><a href="/auth/logout">log out</a></li>
-            <% } %>
-        </ul>
-    </nav>
 
-    <%- include('partials/alerts') %>
-    <%- body %>
-    
+    <div class="container">
+        <div class="sub-container">
+            <%- include('partials/alerts') %>
+            <%- body %>
+        </div>
+    </div>
+
 </body>
 
 <footer>
 
 </footer>
-
 
 </html>

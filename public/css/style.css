@@ -1,20 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+
 body {
     background-color: #383838;
     font-family: arial;
     color: #f5f5f5;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.character-data {
+    padding: 20px;
+}
+
+.character-data-one {
+    display: flex;
+}
+
+#character-details {
+    font-size: 14px;
+    margin: 20px 0 20px 0;
+}
+
+/* img */
+.char-show {
+    margin: 0 40px 0 0;
 }
 
 /* layout ejs -- SSBU stats header */
 header {
     background-color: #828282;
+    width: 100%;
     padding: 10px;
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: space-between;
 }
 
-h1 {
-    font-size: 16px;
+a:link, a:visited, a:hover, a:active {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+h2 {
+    margin: 10px 8px 10px 0;
+}
+
+.bold {
+    font-weight: 900;
+}
+
+.uid {
+    font-size: 10px;
+}
+
+.edit-header {
+    display: inline-block;
+}
+
+nav {
+    text-align: right;
+}
+
+ul {
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
 }
 
 .menu {
     display: inline-block;
     margin: 0 30px 0 0;
+}
+
+.text {
+    text-align: center;
+}
+
+.about-text {
+    padding: 10px;
+}
+
+.edit-about {
+    width: 300px;
+    height: 200px;
 }

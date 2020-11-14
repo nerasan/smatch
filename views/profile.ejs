@@ -1,20 +1,11 @@
-<h2><%= currentUser.name %>'s profile</h2>
-<h4><a href="/profile/edit/<%= currentUser.id %>">edit profile</a></h4>
+<h2 class="edit-header"><%= currentUser.name %></h2><a href="/profile/edit/<%= currentUser.id %>"><img src="https://www.flaticon.com/svg/static/icons/svg/61/61456.svg" width=15 class="edit-header"></a>
 
 <ul>
     <li>
-        name: <%= currentUser.name %>
+        <span class="bold">username:</span> <%= currentUser.name %> <span class="uid">(user id: #<%= currentUser.id %>)</span>
     </li>
     <li>
-        user id: <%= currentUser.id %>
+        <span class="bold">switch code:</span> <%= currentUser.switchCode %>
     </li>
-    <li>
-        email: <%= currentUser.email %>
-    </li>
-    <li>
-        switch code: <%= currentUser.switchCode %>
-    </li>
-    <li>
-        about: <%= currentUser.about %>
-    </li>
+        <div class="about-text"><%= currentUser.about %></div>
 </ul>
