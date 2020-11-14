@@ -2,6 +2,7 @@
 
 body {
     background-color: #383838;
+    background-image: url(https://i.imgur.com/9irvBmI.jpg);
     font-family: arial;
     color: #f5f5f5;
     font-family: 'Fira Sans', sans-serif;
@@ -12,9 +13,23 @@ body {
     justify-content: center;
 }
 
-.match-container {
-    border: 1px solid black;
+.sub-container {
+    background-color: rgb(256,256,256,0.2);
+    width: 500px;
+    padding: 50px;
     margin: 20px 0 0 0;
+}
+
+.alerts {
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+
+.match-container {
+    border: 1px solid rgb(128,128,128,0.7);
+    /* background-color: rgb(128,128,128,0.7); */
+    margin: 20px 0 0 0;
+    padding: 10px;
 }
 
 .match-details {
@@ -43,6 +58,12 @@ body {
 #character-details {
     font-size: 14px;
     margin: 20px 0 20px 0;
+}
+
+.login-block {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
 }
 
 /* img */
@@ -108,4 +129,11 @@ ul {
 .edit-about {
     width: 300px;
     height: 200px;
+}
+
+.btn, input {
+    /* border: 0x solid white; */
+    color: white;
+    font-size: 10px;
+    background-color: black;
 }

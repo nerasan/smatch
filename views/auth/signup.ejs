@@ -1,15 +1,18 @@
 <h2>sign up</h2>
 
 <form method="POST" action="/auth/signup">
-    <label for="new-name">username</label>
-    <input type="text" name="name" id="new-name">
-
-    <label for="new-email">email</label>
-    <input type="email" name="email" id="new-email">
-
-    <label for="new-password">password</label>
-    <input type="password" name="password" id="new-password">
-
+    <div class="login-block">
+        <label for="new-name">username</label>
+        <input type="text" name="name" id="new-name">
+    </div>
+    <div class="login-block">
+        <label for="new-email">email</label>
+        <input type="email" name="email" id="new-email">
+    </div>
+    <div class="login-block">
+        <label for="new-password">password</label>
+        <input type="password" name="password" id="new-password">
+    </div>
     <input type="submit" value="sign up">
 
 </form>

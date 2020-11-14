@@ -32,7 +32,7 @@ router.post('/signup', (req, res)=>{
             // log the new user in automatically after creating
             passport.authenticate('local', {
                 successRedirect: '/',
-                successFlash: 'account created and logged in!' // FLASH
+                successFlash: 'welcome to smatch.gg! your account has been created!' // FLASH
             })(req, res) // IIFE = immediately invoked function
         } else {
             req.flash('error', 'email already exists, try logging in')
@@ -63,7 +63,7 @@ router.post('/login', passport.authenticate('local', {
 router.get('/logout', (req, res)=>{
     req.logout()
     console.log('logged out')
-    req.flash('success', 'successfully logged out!') // FLASH
+    req.flash('success', 'see you on the arena!') // FLASH
     res.redirect('/')
 })
 

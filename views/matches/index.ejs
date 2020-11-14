@@ -17,9 +17,9 @@ attributes: [[sequelize.Sequelize.fn('date_format', sequelize.Sequelize.col('cre
                 </div>
             </div>
             <div class="match-buttons">
-                <button class="btn">
-                    <a href="/matches/edit/<%= matchIndex %>">edit</a>
-                </button>
+                <a href="/matches/edit/<%= matchIndex %>">
+                    <button class="btn">edit</button>
+                </a>
                 <form method="DELETE" action="/matches/<%= currentUser.id %>"><input hidden type="text" name="id" value="<%= matchIndex %>"><button class="btn" type="submit">delete</button></form>
             </div>
         </div>
