@@ -9,11 +9,9 @@
 
 <form action="/matches/<%= currentUser.id %>" method="POST">
 
-    <div class="form-group">
       <input hidden type="user" name="userId" value="<%= currentUser.id %>">
-    </div>
 
-    <div class="form-group">
+    <div class="edit-align">
         <label for="character">character</label>
         <select name="characterId" id="character" class="form-control" required>
             <option selected="selected">Select Character</option>
@@ -23,14 +21,15 @@
         </select>
     </div>
 
-    <div class="form-group">
+    <div class="edit-align">
         <label for="result">match result</label>
         <select name="result" id="result" class="form-control" required>
             <option value="win">win</option>
             <option value="lose">lose</option>
         </select>
     </div>
-
+<div class="btn-center">
     <input type="submit" class="btn">
+</div>
 
   </form>

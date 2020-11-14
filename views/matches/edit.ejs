@@ -1,9 +1,9 @@
-<h2>editing match <%= match.id %></h2>
+<h2>edit match details</h2>
 
 <div class="match-container">
     <div class="match-details">
         <div class="match-results">
-            <img src="<%= match.character.icon %>" width=100> <%= match.character.name %> <span><%= match.result.toUpperCase() %><br></span>
+            <img src="<%= match.character.icon %>" width=100><span class="font"><%= match.character.name %></span><span><%= match.result.toLowerCase() %><br></span>
         </div>
     </div>
 </div>
@@ -15,23 +15,24 @@
     <% return 0 %>
 <% }) %>
 
-<h4>edit match details</h4>
+    <div class="form-container">
 
 <form action="/matches/<%= matchIndex %>?_method=PUT" method="POST">
-    <div class="form-group">
       <input hidden type="user" name="userId" value="<%= currentUser.id %>">
-    </div>
-    <div class="form-group">
-        <label for="character">character</label>
+
+      <div class="edit-align">
+        <label for="character" class="bold">character</label>
         <select name="characterId" id="character" class="form-control" required>
             <option selected="selected" value="<%= match.characterId %>"><%= character.name %></option>
             <% allCharacters.forEach(function(allChar) { %>
                 <option value="<%= allChar.id %>"><%= allChar.name %></option>
             <% }) %>
         </select>
-    </div>
-    <div class="form-group">
-        <label for="result">match result</label>
+        </div>
+
+
+            <div class="edit-align">
+        <label for="result" class="bold">match result</label>
         <select name="result" id="result" class="form-control" required>
             <option selected="selected"><%= match.result %></option>
             <% if (match.result === "win") { %>
@@ -40,18 +41,9 @@
                 <option value="win">win</option>
             <% } %>
         </select>
-    </div>
-    <input type="submit" class="btn">
+        </div>
+        <div class="btn-center">
+            <input type="submit" class="btn">
+        </div>
   </form>
-
-  <script>
-      document.addEventListener('DOMContentLoaded', ()=>{
-          document.querySelector("form").addEventListener('change', ()=>{
-              let result = document.querySelectorAll("select")
-              console.log(typeof result)
-              result.forEach(r=>{
-                console.log(r)
-              })
-          })
-      })
-  </script>
+  </div>

@@ -1,19 +1,21 @@
-<h2 class="edit-header"><%= currentUser.name %></h2><a href="/profile/edit/<%= currentUser.id %>"><img src="https://icons-for-free.com/iconfiles/png/512/edit+pen+pencil+icon-1320183237584811650.png" width=20 class="edit-header"></a>
+<h2 class="h2-inline"><%= currentUser.name %></h2><a href="/profile/edit/<%= currentUser.id %>"><img src="https://icons-for-free.com/iconfiles/png/512/edit+pen+pencil+icon-1320183237584811650.png" width=20></a>
+
+<% let switchCodeFormat = currentUser.switchCode.slice(0,4)+"-"+currentUser.switchCode.slice(4,8)+"-"+currentUser.switchCode.slice(8,12) %>
 
 <ul>
     <li>
         <span class="bold">username:</span> <%= currentUser.name %> <span class="uid">(user id: #<%= currentUser.id %>)</span>
     </li>
     <li>
-        <span class="bold">switch code:</span> <%= currentUser.switchCode %>
+        <span class="bold">switch code:</span> <%= switchCodeFormat %>
     </li>
         <div class="about-text"><%= currentUser.about %></div>
 </ul>
 
 <!-- TOTAL MATCH STATS -->
-<h3>match data</h3>
-
-<% let winCount = 0 %>
+<div id="profile-container">
+    <h2>match overview</h2>
+    <% let winCount = 0 %>
 <% let loseCount = 0 %>
 
 <% matches.forEach(match=>{ %>
@@ -23,16 +25,83 @@
         <% loseCount += 1 %>
     <% } %>
 <% }) %>
+<% let totalCount = winCount + loseCount %>
 
-total wins:
-<li><%= winCount %></li>
+    <div id="chart-container">
 
-total losses:
-<li><%= loseCount %></li>
+    <!-- CHART -->
+    <canvas id="myChart" height="75"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>
+        var wins = "<%= winCount %>"
+        var losses = "<%= loseCount %>"
+        var total = (+wins) + (+losses)
+        var percentW = (+wins) / (+total)
+        var percentL = (+losses) / (+total)
+    
+        if (total !== 0) {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myDataChart = new Chart(ctx, {
+                // the type of chart
+                type: 'doughnut',
+        
+                // the data for our dataset
+                data: {
+                    labels: ['W','L'],
+                    datasets: [{
+                        label: 'total match statistics',
+                        data: [wins, losses],
+                        backgroundColor: [
+                            '#5b84b1ff',
+                            '#fc766aff'
+                        ],
+                        borderColor: [
+                            'rgb(0,0,0)',
+                            'rgb(0,0,0)'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                // configuration options go here
+                options: {
+                    cutoutPercentage: 60,
+                    title: {
+                        display: true,
+                        text: total + 'M ' + wins + 'W ' + losses + 'L',
+                        fontColor: 'white'
+                    },
+                    legend: {
+                        display: false,
+                        position: 'bottom',
+                        labels: {
+                            fontColor: 'white'
+                        }
+                    }
+                }
+            })
+            var chartContainer = document.getElementById("chart-container")
+            var ul = document.createElement("ul")
+            chartContainer.appendChild(ul)
 
-<% let statsArray = [ winCount, loseCount ] %>
+            var liWin = document.createElement("li")
+            liWin.setAttribute("class", "percentage")
+            liWin.innerHTML = "W " + ((wins / total) * 100).toFixed(2) + "%"
+            var liLose = document.createElement("li")
+            liLose.setAttribute("class", "percentage")
+            liLose.innerHTML = "L " + ((losses / total) * 100).toFixed(2) + "%"
+            ul.appendChild(liWin)
+            ul.appendChild(liLose)
 
-total match stats - pulled from array:
-<% statsArray.forEach(stat => { %>
-    <li><%= stat %></li>
-<% }) %>
+        } else {
+            var noData = document.createElement("div")
+            noData.innerHTML = "no matches recorded!"
+            var profileContainer = document.getElementById("profile-container")
+            profileContainer.appendChild(noData)
+        }
+    </script>
+
+    </div>
+
+</div>
+
+

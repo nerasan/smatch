@@ -9,6 +9,7 @@ const isLoggedIn = require('./middleware/isLoggedIn')
 const axios = require('axios')
 const methodOverride = require('method-override')
 const db = require('./models')
+const chart = require('chart.js')
 
 // middleware - set up ejs and ejs layouts
 app.use(methodOverride('_method')) // will look at '_method' in the url
@@ -60,8 +61,8 @@ app.get('/profile/:id', isLoggedIn, (req, res)=>{
             userId: req.params.id
         }
     }).then(result=>{
-        console.log("the count is:", result.count)
-        console.log("the rows are:", result.rows)
+        // console.log("the count is:", result.count)
+        // console.log("the rows are:", result.rows)
         res.render('profile', { matchCount: result.count, matches: result.rows })
     }).catch(err=>{
         console.log("error for viewing profile is:", err)

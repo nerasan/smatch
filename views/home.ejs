@@ -1,7 +1,17 @@
 <div class="text">
     <h2>welcome to smatch.gg!</h2>
-    track your progress on SSBU, view match history, and get an analysis for your top characters.
-    <p>
-        <a href="/auth/signup">get started!</a>
-    </p>
+    track your progress on SSBU by adding match results to view your match history and statistics.
+</div>
+
+<div class="text">
+        <% if (!currentUser) { %>
+            <button class="btn">
+                <a href="/auth/signup">get started!</a>
+            </button>
+        <% } else { %>
+            <button class="btn">
+                <a href="/profile/<%= currentUser.id %>">view profile</a>
+            </button>
+        <% } %>
+
 </div>

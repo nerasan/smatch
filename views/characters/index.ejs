@@ -10,7 +10,7 @@
 <!-- listing all the characters -->
 <ul>
 <% characterData.forEach(character=>{ %>
-    <li>
+    <li class="char-index">
         <a href="/characters/<%= character.name.toLowerCase() %>"><%= character.name %></a> <img src="<%= character.series.icon %>" width=20>
     </li>
 <% }) %>

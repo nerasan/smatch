@@ -1,6 +1,6 @@
 <h2>match history for <%= currentUser.name %></h2>
 
-<div class="match-buttons">
+<div class="btn-center">
     <form action="/matches/new/<%= currentUser.id %>">
         <input type="submit" value="add" />
     </form>
@@ -13,14 +13,18 @@ attributes: [[sequelize.Sequelize.fn('date_format', sequelize.Sequelize.col('cre
         <div class="match-container">
             <div class="match-details">
                 <div class="match-results">
-                    <img src="<%= match.character.icon %>" width=100> <%= match.character.name %> <span><%= match.result.toUpperCase() %><br></span>
+                    <img src="<%= match.character.icon %>" width=100 class="char-match-index">
+                    <span class="font"><%= match.character.name %></span>
+                    <span><%= match.result.toLowerCase() %><br></span>
                 </div>
             </div>
-            <div class="match-buttons">
+            <div class="btn-center">
                 <a href="/matches/edit/<%= matchIndex %>">
                     <button class="btn">edit</button>
                 </a>
-                <form method="DELETE" action="/matches/<%= currentUser.id %>"><input hidden type="text" name="id" value="<%= matchIndex %>"><button class="btn" type="submit">delete</button></form>
+                <form method="DELETE" action="/matches/<%= currentUser.id %>">
+                    <input hidden type="text" name="id" value="<%= matchIndex %>">
+                    <button class="btn" type="submit">delete</button></form>
             </div>
         </div>
         <% }) %>

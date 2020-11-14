@@ -1,14 +1,16 @@
 <h2>login</h2>
 
 <form method="POST" action="/auth/login">
-    <div class="login-block">
-        <label for="auth-email">email</label>
-        <input type="email" name="email" id="auth-email">
-    </div>
-    
-    <div class="login-block">
-        <label for="auth-password">password</label>
-        <input type=password id="auth-password" name="password">
+    <div class="form-container">
+        <div class="login-block">
+            <label for="auth-email">email</label>
+            <input type="email" name="email" id="auth-email" autocomplete="off">
+        </div>
+        
+        <div class="login-block">
+            <label for="auth-password">password</label>
+            <input type=password id="auth-password" name="password">
+        </div>
     </div>
     
     <input type="submit" value="login">

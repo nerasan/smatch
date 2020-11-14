@@ -1,11 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Galindo&display=swap');
 
 body {
-    background-color: #383838;
+    background-color: #7f7f7f;
     background-image: url(https://i.imgur.com/9irvBmI.jpg);
-    font-family: arial;
     color: #f5f5f5;
     font-family: 'Fira Sans', sans-serif;
+    font-size: 14px;
+}
+
+/* layout ejs -- SSBU stats header */
+header {
+    background-color: #7f7f7f;
+    width: 100%;
+    padding: 10px;
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+nav {
+    text-align: right;
+}
+
+ul {
+    padding: 0px;
+    margin: 5px 0 0 0;
+    list-style-type: none;
+}
+
+.menu {
+    display: inline-block;
+    margin: 0 30px 0 0;
+}
+
+.char-index {
+    padding: 2px;
 }
 
 .container {
@@ -14,10 +44,26 @@ body {
 }
 
 .sub-container {
-    background-color: rgb(256,256,256,0.2);
+    background-color: rgb(256,256,256,0.1);
+    border-radius: 40px;
     width: 500px;
     padding: 50px;
     margin: 20px 0 0 0;
+}
+
+h2 {
+    font-family: 'Galindo', cursive;
+    margin: 10px 8px 10px 0;
+}
+
+h3 {
+    font-family: 'Galindo', cursive;
+    margin: 0;
+}
+
+.text {
+    text-align: center;
+    margin: 0 0 20px 0;
 }
 
 .alerts {
@@ -25,16 +71,45 @@ body {
     margin: 20px 0 0 0;
 }
 
+.login-block {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}
+
+.edit-align {
+    display: flex;
+    justify-content: space-between;
+    /* width: 400px; */
+    margin: 0 0 10px 0;
+}
+
+.form-container {
+    padding: 10px;
+    margin: 10px 0 0 0;
+}
+
+.bold {
+    color: #9c9c9c;
+    font-size: 16px;
+}
+
+.percentage {
+    text-align: center;
+    font-size: 12px;
+}
+
+/* styling for match index page */
 .match-container {
-    border: 1px solid rgb(128,128,128,0.7);
-    /* background-color: rgb(128,128,128,0.7); */
-    margin: 20px 0 0 0;
+    border: 1px solid rgb(128,128,128,0.3);
+    margin: 20px 0 10px 0;
     padding: 10px;
 }
 
 .match-details {
     display: flex;
     justify-content: center;
+    margin: 0 0 5px 0;
 }
 
 .match-results {
@@ -43,10 +118,11 @@ body {
     text-align: center;
 }
 
-.match-buttons {
-    text-align: center;
+.font {
+    font-family: 'Galindo', cursive;
 }
 
+/* styling for character index page */
 .character-data {
     padding: 20px;
 }
@@ -60,25 +136,13 @@ body {
     margin: 20px 0 20px 0;
 }
 
-.login-block {
-    display: flex;
-    justify-content: space-between;
-    width: 200px;
-}
-
 /* img */
 .char-show {
     margin: 0 40px 0 0;
 }
 
-/* layout ejs -- SSBU stats header */
-header {
-    background-color: #828282;
-    width: 100%;
+.char-match-index {
     padding: 10px;
-    display: inline-flex;
-    align-items: flex-end;
-    justify-content: space-between;
 }
 
 a:link, a:visited, a:hover, a:active {
@@ -87,39 +151,12 @@ a:link, a:visited, a:hover, a:active {
     text-decoration: none;
 }
 
-h2 {
-    margin: 10px 8px 10px 0;
-}
-
-.bold {
-    font-weight: 900;
-}
-
 .uid {
     font-size: 10px;
 }
 
-.edit-header {
+.h2-inline {
     display: inline-block;
-}
-
-nav {
-    text-align: right;
-}
-
-ul {
-    padding: 0px;
-    margin: 0px;
-    list-style-type: none;
-}
-
-.menu {
-    display: inline-block;
-    margin: 0 30px 0 0;
-}
-
-.text {
-    text-align: center;
 }
 
 .about-text {
@@ -128,12 +165,24 @@ ul {
 
 .edit-about {
     width: 300px;
-    height: 200px;
+    height: 100px;
 }
 
 .btn, input {
     /* border: 0x solid white; */
+    font-family: 'Fira Sans', sans-serif;
     color: white;
     font-size: 10px;
     background-color: black;
+    text-align: center;
+}
+
+/* input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+} */
+
+.btn-center {
+    text-align: center;
 }
