@@ -8,7 +8,7 @@
 
 <h4>profile details</h4>
 
-<form action="/profile" method="POST">
+<form action="/profile/<%= currentUser.id %>" method="POST">
     <div class="form-group">
       <input hidden type="user" name="userId" value="<%= currentUser.id %>">
     </div>

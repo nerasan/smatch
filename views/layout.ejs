@@ -19,7 +19,7 @@
                     <li class="menu"><a href="/auth/login">log in</a></li>
                     <li class="menu"><a href="/auth/signup">sign up</a></li>
                 <% } else { %>
-                    <li class="menu"><a href="/profile">profile</a></li>
+                    <li class="menu"><a href="/profile/<%= currentUser.id %>">profile</a></li>
                     <li class="menu"><a href="/matches/<%= currentUser.id %>">match history</a></li>
                     <li class="menu"><a href="/characters">characters</a></li>
                     <li class="menu"><a href="/auth/logout">log out</a></li>

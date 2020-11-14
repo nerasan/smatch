@@ -9,3 +9,24 @@
     </li>
         <div class="about-text"><%= currentUser.about %></div>
 </ul>
+
+<h3>match data</h3>
+
+<% let winCount = 0 %>
+<% let loseCount = 0 %>
+
+<% matches.forEach(match=>{ %>
+    <% if (match.result === "win") { %>
+        <% winCount += 1 %>
+    <% } else { %>
+        <% loseCount += 1 %>
+    <% } %>
+<% }) %>
+
+total wins:
+<%= winCount %>,
+
+total losses:
+<%= loseCount %>
+
+<!-- check using filter to run through array based on condition and get length = count  -->

@@ -54,8 +54,16 @@ app.get('/', (req, res)=>{
 
 // GET route to view profile
 // isLoggedIn only applies to middleware that needs specific routes
-app.get('/profile', isLoggedIn, (req, res)=>{
-    res.render('profile')
+app.get('/profile/:id', isLoggedIn, (req, res)=>{
+    db.match.findAndCountAll({
+        where: {
+            userId: req.params.id
+        }
+    }).then(result=>{
+        console.log("the count is:", result.count)
+        console.log("the rows are:", result.rows)
+        res.render('profile', { matchCount: result.count, matches: result.rows })
+    })
 })
 
 // GET /profile/edit - edit (read) - shows a form for editing your profile
@@ -74,7 +82,7 @@ app.get('/profile/edit/:id', isLoggedIn, (req, res)=>{
 // PUT /profile - update (update) - updates the data for your profile
 // returning: true tells sequelize to return the object, plain: true returns the object itself without additional data
 
-app.post('/profile', isLoggedIn, (req, res)=>{
+app.post('/profile/:id', isLoggedIn, (req, res)=>{
     db.user.update({
         switchCode: req.body.switchCode,
         about: req.body.about
@@ -87,7 +95,7 @@ app.post('/profile', isLoggedIn, (req, res)=>{
             console.log("updated profile for email:", req.body.email)
             console.log("switch code updated to:", req.body.switchCode)
             console.log("about box updated to:", req.body.about)
-            res.redirect('/profile')
+            res.redirect('/profile/:id')
         }).catch(err=>{
         console.log("error for updating profile is:", err)
     })
