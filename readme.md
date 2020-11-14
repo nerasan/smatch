@@ -1,4 +1,4 @@
-# SSBUstats
+# smatch.gg
 
 ## Routes
 
@@ -28,16 +28,12 @@ https://ssbustats.com
 
 #### To-Do
 
-* Create a user.js controllers to edit the user data and show profiles (if this is possible -- has to be by userId)
-* Get the match results and a count of wins/losses per character to even show up on the profile page
-* Work on CSS
-* Check ways to make graph
+* Update ERD, wireframe, and readme
 * Deploy site
 
-
 #### Issues to fix
+* N/A
 
+#### Stretch Goals
 * Look into the double criteria for findOrCreate in order to view other people's profiles by username -- if it does not work, just have it by userId
-* the a href tags in character show page do not work even though it is correct?
 * Figure out the date formatting -- if have time
-* Why is the model for userData not showing the integer fields? Is it not possible to have one-to-one relationships? Could move everything into User but it is not updating properly.

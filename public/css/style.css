@@ -186,3 +186,8 @@ input::-webkit-inner-spin-button {
 .btn-center {
     text-align: center;
 }
+
+select {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 12px;
+}

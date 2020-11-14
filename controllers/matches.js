@@ -14,11 +14,11 @@ router.get('/:id', (req, res)=>{
         },
     })
     .then((foundMatches)=>{
-        console.log("all matches found:", foundMatches)
+        // console.log("all matches found:", foundMatches)
         res.render('matches/index', { matches: foundMatches })
     })
     let deletematch = req.query.id
-    console.log("the match to be deleted is at match index:", deletematch)
+    // console.log("the match to be deleted is at match index:", deletematch)
     db.match.destroy({
         where: {
             id: deletematch
@@ -73,16 +73,15 @@ router.get('/edit/:id', (req, res)=>{
     db.character.findAll()
     .then(characters=>{
         let characterData = characters 
-        console.log("characterData:", characterData)
-
-        console.log("req.params.id:", req.params.id)
+        // console.log("characterData:", characterData)
+        // console.log("req.params.id:", req.params.id)
         db.match.findOne({
             where: { id: req.params.id },
             include: [db.character]
         }).then(foundMatch=>{
             let matchIndex = req.params.id
-            console.log("foundMatch:", foundMatch.character.dataValues)
-            console.log("foundMatch specific to the current index:", matchIndex, "match data is:", foundMatch)
+            // console.log("foundMatch:", foundMatch.character.dataValues)
+            // console.log("foundMatch specific to the current index:", matchIndex, "match data is:", foundMatch)
             res.render('matches/edit', { allCharacters: characterData, match: foundMatch, character: foundMatch.character.dataValues, matchIndex: matchIndex})
         }).catch(err=>{
             console.log("the error in the edit/read route is:", err)

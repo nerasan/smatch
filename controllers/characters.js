@@ -32,7 +32,7 @@ router.get('/:id', (req, res)=>{
     let character = req.params.id
     axios.get(`https://smashbros-unofficial-api.vercel.app/api/v1/ultimate/characters/${character}`)
     .then(response=>{
-        console.log(response.data)
+        // console.log(response.data)
         res.render('characters/show', {characterData: response.data})
     })
     .catch(err=>{

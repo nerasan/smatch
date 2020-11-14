@@ -1,4 +1,4 @@
-<h4>add a new match result</h4>
+<h3>add a new match result</h3>
 
 <!-- sorting characters alphabetically -->
 <% characters.sort(function(a, b) { %>
@@ -8,6 +8,8 @@
 <% }) %>
 
 <form action="/matches/<%= currentUser.id %>" method="POST">
+
+    <div class="form-container">
 
       <input hidden type="user" name="userId" value="<%= currentUser.id %>">
 
@@ -27,6 +29,7 @@
             <option value="win">win</option>
             <option value="lose">lose</option>
         </select>
+    </div>
     </div>
 <div class="btn-center">
     <input type="submit" class="btn">
