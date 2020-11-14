@@ -10,6 +10,7 @@
         <div class="about-text"><%= currentUser.about %></div>
 </ul>
 
+<!-- TOTAL MATCH STATS -->
 <h3>match data</h3>
 
 <% let winCount = 0 %>
@@ -24,9 +25,14 @@
 <% }) %>
 
 total wins:
-<%= winCount %>,
+<li><%= winCount %></li>
 
 total losses:
-<%= loseCount %>
+<li><%= loseCount %></li>
 
-<!-- check using filter to run through array based on condition and get length = count  -->
+<% let statsArray = [ winCount, loseCount ] %>
+
+total match stats - pulled from array:
+<% statsArray.forEach(stat => { %>
+    <li><%= stat %></li>
+<% }) %>

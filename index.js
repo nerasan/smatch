@@ -63,6 +63,8 @@ app.get('/profile/:id', isLoggedIn, (req, res)=>{
         console.log("the count is:", result.count)
         console.log("the rows are:", result.rows)
         res.render('profile', { matchCount: result.count, matches: result.rows })
+    }).catch(err=>{
+        console.log("error for viewing profile is:", err)
     })
 })
 
@@ -92,10 +94,11 @@ app.post('/profile/:id', isLoggedIn, (req, res)=>{
         }
     }).then(result=>{
             console.log(result)
+            let userId = req.body.userId
             console.log("updated profile for email:", req.body.email)
             console.log("switch code updated to:", req.body.switchCode)
             console.log("about box updated to:", req.body.about)
-            res.redirect('/profile/:id')
+            res.redirect(`/profile/${userId}`)
         }).catch(err=>{
         console.log("error for updating profile is:", err)
     })
