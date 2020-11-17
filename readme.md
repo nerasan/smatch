@@ -68,7 +68,7 @@ Smatch is a simple, easy-to-use website for Super Smash Bros Ultimate players to
 ### **Characters**
 ![wireframe-characters](https://i.imgur.com/JxB5HR2.jpg)
 
-* *Wireframes only show the navigation menu for a user who is not logged in. Logged in users have a different navigation (profile, match history, characters, log out).*
+* *Wireframes only show the navigation menu for a user who is not logged in. Logged in users have a different navigation (profile, match history, characters, log out). The above images say "home page (not logged in) for all of them... oops.*
 * *Individual character show page wireframe not shown above.*
 
 ## Development Plan
