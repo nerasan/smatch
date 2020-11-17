@@ -1,5 +1,5 @@
 <div class="text">
-    <h2>welcome to smatch.gg!</h2>
+    <h2>welcome to smatch!</h2>
     track your progress on SSBU by adding match results to view your match history and statistics.
 </div>
 
@@ -8,6 +8,9 @@
             <button class="btn">
                 <a href="/auth/signup">get started!</a>
             </button>
+            <p class="small">
+                already have an account? <a href="/auth/login">log in!</a>
+            </p>
         <% } else { %>
             <button class="btn">
                 <a href="/profile/<%= currentUser.id %>">view profile</a>

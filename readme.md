@@ -30,6 +30,7 @@ https://ssbustats.com
 
 * Update ERD, wireframe, and readme
 * Deploy site
+* Check the user protection? Everything in isLoggedIn is fine, right?
 
 #### Issues to fix
 * N/A
@@ -37,3 +38,8 @@ https://ssbustats.com
 #### Stretch Goals
 * Look into the double criteria for findOrCreate in order to view other people's profiles by username -- if it does not work, just have it by userId
 * Figure out the date formatting -- if have time
+
+#### Resourches
+https://smashbros-unofficial-api.vercel.app/
+https://www.chartjs.org/docs/latest/
+https://na.op.gg/

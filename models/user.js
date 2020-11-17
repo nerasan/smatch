@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.user.hasOne(models.userData)
       models.user.hasMany(models.match)
     }
   };

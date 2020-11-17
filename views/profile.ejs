@@ -1,6 +1,12 @@
 <h2 class="h2-inline"><%= currentUser.name %></h2><a href="/profile/edit/<%= currentUser.id %>"><img src="https://icons-for-free.com/iconfiles/png/512/edit+pen+pencil+icon-1320183237584811650.png" width=20></a>
 
-<% let switchCodeFormat = currentUser.switchCode.slice(0,4)+"-"+currentUser.switchCode.slice(4,8)+"-"+currentUser.switchCode.slice(8,12) %>
+<% let switchCodeFormat = 0 %>
+
+<% if (currentUser.switchCode !== null) { %>
+    <% switchCodeFormat = currentUser.switchCode.slice(0,4)+"-"+currentUser.switchCode.slice(4,8)+"-"+currentUser.switchCode.slice(8,12) %>
+<% } else { %>
+    <% switchCodeFormat = " " %>
+<% } %>
 
 <ul>
     <li>

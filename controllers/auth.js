@@ -32,7 +32,7 @@ router.post('/signup', (req, res)=>{
             // log the new user in automatically after creating
             passport.authenticate('local', {
                 successRedirect: '/',
-                successFlash: 'welcome to smatch.gg! your account has been created!' // FLASH
+                successFlash: 'welcome to smatch! your account has been created!' // FLASH
             })(req, res) // IIFE = immediately invoked function
         } else {
             req.flash('error', 'email already exists, try logging in')
