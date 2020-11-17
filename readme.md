@@ -48,7 +48,7 @@ Smatch is a simple, easy-to-use website for Super Smash Bros Ultimate players to
 
 ![erd](updated-erd.png)
 
-## Wireframe
+## Wireframes
 
 ### **Home Page**
 ![wireframe-home](https://i.imgur.com/Vf9lpPD.jpg)
@@ -70,8 +70,6 @@ Smatch is a simple, easy-to-use website for Super Smash Bros Ultimate players to
 
 * *Wireframes only show the navigation menu for a user who is not logged in. Logged in users have a different navigation (profile, match history, characters, log out).*
 * *Individual character show page wireframe not shown above.*
-
-## User Stories
 
 ## Development Plan
 
@@ -108,7 +106,7 @@ Smatch is a simple, easy-to-use website for Super Smash Bros Ultimate players to
 
 * After editing an added match, the matches were no longer showing up correctly. (For example: match id #1 was showing the character used and the result from match id #2) -  ***FIXED***
 * Editing a match would not work if the character remained unchanged (i.e., only the match result is being edited). Very huge shoutout and thank you to Fatima for helping me fix this issue that turned out to be so simple! - ***FIXED***
-* Taylor D talked about *scope creep* where you end up spending way more time than you expect on certain goals. Well, this definitely happened. As a result, I had less time to work on styling otherwise I wish I could use a framework or at least made my CSS dryer.
+* Taylor D talked about *scope creep* where you end up spending way more time than you expect on certain goals. Well, this definitely happened. As a result, I had less time to work on styling otherwise I wish I could use a framework or at least made my CSS dryer. - ***LESSON LEARNED***
 
 ## Recognitions & Other Notes
 
