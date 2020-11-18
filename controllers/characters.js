@@ -24,6 +24,8 @@ router.get('/', (req, res)=>{
     })
     .catch(err=>{
         console.log("the error is:", err)
+        req.flash('error', 'there was an error loading this page. please try again.')
+        res.redirect('/')
     })
 })
 
@@ -37,6 +39,8 @@ router.get('/:id', (req, res)=>{
     })
     .catch(err=>{
         console.log(err)
+        req.flash('error', 'there was an error loading this page. please try again.')
+        res.redirect('/')
     })
 })
 

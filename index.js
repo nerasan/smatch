@@ -66,6 +66,7 @@ app.get('/profile/:id', isLoggedIn, (req, res)=>{
         res.render('profile', { matchCount: result.count, matches: result.rows })
     }).catch(err=>{
         console.log("error for viewing profile is:", err)
+        res.send("you must be logged in to view this page!")
     })
 })
 

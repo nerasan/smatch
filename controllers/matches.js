@@ -29,6 +29,8 @@ router.get('/:id', (req, res)=>{
     })
     .catch((error)=>{
         console.log("the error for matches GET route is:", error)
+        // req.flash('error', 'you must be logged in to access that page.')
+        // res.redirect('/auth/login')
     })
 })
 
@@ -65,6 +67,8 @@ router.post('/:id', (req, res)=>{
     })
     .catch((error)=>{
         console.log("the error is:", error)
+        req.flash('error', 'there was an error adding the match. please try again.')
+        res.redirect('/')
     })
 })
 
@@ -85,6 +89,8 @@ router.get('/edit/:id', (req, res)=>{
             res.render('matches/edit', { allCharacters: characterData, match: foundMatch, character: foundMatch.character.dataValues, matchIndex: matchIndex})
         }).catch(err=>{
             console.log("the error in the edit/read route is:", err)
+            req.flash('error', 'there was an error editing the match. please try again.')
+            res.redirect('/')
         })
     })
 })
@@ -109,6 +115,8 @@ router.put('/:id', (req, res)=>{
         res.redirect(`/matches/${userId}`)
     }).catch(err=>{
         console.log("error for updating match is:", err)
+        req.flash('error', 'there was an error editing the match. please try again.')
+        res.redirect('/')
     })
 })
 
