@@ -79,6 +79,7 @@ Smatch is a simple, easy-to-use website for Super Smash Bros Ultimate players to
 * Add chart.js to have chart(s) in a user's profile.
 * **To-Do:** Fix the issue of the profile data loaded from the database, regardless of who is logged in.
 * **To-Do:** Add 404/error route to redirect all undefined pages to.
+* **To-Do:** Add the character details upon deployment of website.
 
 ## MVP
 

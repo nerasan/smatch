@@ -6,6 +6,19 @@ const passport = require('../config/ppConfig.js')
 
 // GET /matches - index (read) - lists all matches
 router.get('/:id', (req, res)=>{
+    axios.get(`https://smashbros-unofficial-api.vercel.app/api/v1/ultimate/characters?name=`)
+    .then(response=>{
+        response.data.forEach(character=>{
+            db.character.findOrCreate({
+                where: { name: character.name },
+                defaults: {
+                    icon: character.images.portrait,
+                    series: character.series.name 
+                }
+            })
+        })
+    })
+    
     db.match.findAll({
         order: [ ['id', 'ASC'] ],
         include: [db.character],
