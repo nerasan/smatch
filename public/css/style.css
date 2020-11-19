@@ -84,6 +84,36 @@ h3 {
     margin: 0 0 10px 0;
 }
 
+.edit-align {
+    position: relative;
+    /* padding-left: 240px; */
+}
+
+.infobox {
+    position: absolute;
+    left: 180px;
+    top: 0;
+    width: 160px;
+    height: 10px;
+    border: 1px solid #000;
+    background: #000;
+    z-index: 1;
+    color: #fff;
+    font-size: 10px;
+    padding: 3px;
+}
+
+.infobox:after {
+    content: " ";
+    position: absolute;
+    right: -15px;
+    top: -1px;
+    border-top: 9px solid transparent;
+    border-right: none;
+    border-left: 15px solid black;
+    border-bottom: 9px solid transparent;
+}
+
 div[contenteditable] {
     display: flex;
     justify-content: space-between;

@@ -105,6 +105,10 @@ Smatch is a simple, easy-to-use website for Super Smash Bros Ultimate players to
   * Simplified - only shows character name and the result in a table format
 * Mobile friendly to allow users to simply screenshot their profile page and share their Smatch card.
 
+## User Feedback
+
+* Edit profile page: have the switch code field automatically populate dashes when typing in so users are not lost on which digit they are on.
+
 ## Challenges
 
 * After editing an added match, the matches were no longer showing up correctly. (For example: match id #1 was showing the character used and the result from match id #2) -  ***FIXED***
